@@ -45,44 +45,89 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 
 4-bit Count Down Counter
-### Procedure
-/* write all the steps invloved */
+### Procedure :
+Connect the supply(+5V) to the circuit . Switch ON the main switch. If the ouput is 1 , then the bulb glows .
 
 
-
-### PROGRAM 
+### PROGRAM :
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+
+Developed by: ANU RADHA .N
+
+RegisterNumber:23000217 
 */
+```
+UP COUNTER :
 
+module upc(clk,A);
+input clk;
+output reg[0:3]A;
+always@(posedge clk)
+begin 
+A[0]=((((A[1])&(A[2]))&A[3])^A[0]);
+A[1]=(((A[2])&(A[3]))^A[1]);
+A[2]=((A[3])^A[2]);
+A[3]=1^A[3];
+end 
+endmodule
 
+```
 
+DOWN COUNTER :
+```
+module downc(clk , A);
+input clk;
+output reg [0:3]A;
+always@(posedge clk)
+begin 
+A[0] = ((~A[1])&(~A[2])&(~A[3]))^A[0];
+A[1] = ((~A[2])&(~A[3]))^A[1];
+A[2] = ((~A[3]))^A[2];
+A[3] =1^A[3];
+end 
+endmodule 
 
+```
 
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
 
 
+UP COUNTER :
+![Screenshot 2023-12-02 110347](https://github.com/ANU23000217/Exp-7-Synchornous-counters-/assets/139117108/ba815c84-5aab-4f11-9ad4-e53d8a3beda8)
 
 
+DOWN COUNTER :
 
 
+![Screenshot 2023-12-02 111431](https://github.com/ANU23000217/Exp-7-Synchornous-counters-/assets/139117108/2e772cfd-2353-4a28-848e-1a3f0f3c0d1b)
 
 
 
 ### TIMING DIGRAMS FOR COUNTER  
+UP COUNTER :
 
+![Screenshot 2023-12-02 130004](https://github.com/ANU23000217/Exp-7-Synchornous-counters-/assets/139117108/22c31e8e-3710-4218-9c62-1fffc7e63036)
 
+DOWN COUNTER :
 
+![Screenshot 2023-12-02 115329](https://github.com/ANU23000217/Exp-7-Synchornous-counters-/assets/139117108/d3218a1c-b7b6-417a-b71b-b47eadd151c3)
 
 
 ### TRUTH TABLE 
 
+UP COUNTER :
+
+![image](https://github.com/ANU23000217/Exp-7-Synchornous-counters-/assets/139117108/737e58d6-4aa9-4067-879e-ab6a9cecc11e)
+
+
+DOWN COUNTER :
+
+![image](https://github.com/ANU23000217/Exp-7-Synchornous-counters-/assets/139117108/668ee8fd-d458-4250-896b-89e9515e658a)
 
 
 
 
-
-### RESULTS 
+### RESULTS :
+Thus , the 4-bit up and down counter is implemented successfully. 
